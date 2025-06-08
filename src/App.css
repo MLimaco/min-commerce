@@ -1,45 +1,80 @@
 @import "tailwindcss";
 
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  /* Color variables */
+  --color-primary: #10b981; /* emerald-600 */
+  --color-primary-hover: #059669; /* emerald-700 */
+  --color-text: #1f2937; /* gray-800 */
+  --color-text-light: #4b5563; /* gray-600 */
+  --color-background: #f9fafb; /* gray-50 */
+  --color-white: #ffffff;
+  --color-accent: #ef4444; /* red-500 */
+  
+  /* Animation variables */
+  --transition-fast: 300ms;
+  --transition-medium: 500ms;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Apply base styles */
+body {
+  @apply bg-gray-50 text-gray-800 font-sans antialiased;
+  min-height: 100vh;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Container width and responsiveness */
+.container {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Reusable animations */
+.hover-lift {
+  @apply transition-transform duration-300;
 }
 
+.hover-lift:hover {
+  @apply transform -translate-y-1;
+}
+
+.image-zoom {
+  @apply transition-transform duration-500;
+}
+
+.image-zoom:hover {
+  @apply scale-105;
+}
+
+/* Card styles */
 .card {
-  padding: 2em;
+  @apply bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full;
 }
 
-.read-the-docs {
-  color: #888;
+/* Button styles */
+.btn-primary {
+  @apply bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition-colors duration-300;
+}
+
+.btn-outline {
+  @apply border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white py-2 px-4 rounded-md transition-colors duration-300;
+}
+
+/* Badge styles */
+.badge {
+  @apply text-xs text-gray-600 bg-gray-100 rounded-full px-3 py-1;
+}
+
+.badge-accent {
+  @apply text-xs text-white bg-red-500 rounded-full px-2 py-1;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-medium tracking-tight text-gray-800;
+}
+
+/* Removing default styling */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
